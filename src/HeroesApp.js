@@ -1,5 +1,6 @@
 import React from 'react';
+import AppRouter from './routers/AppRouter';
 
 export default function HeroesApp() {
-  return <h1>HeroesApp</h1>;
+  return <AppRouter />;
 }
