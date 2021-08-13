@@ -22,11 +22,9 @@ export default function SearchScreen({ history }) {
 
   return (
     <div>
-      <h1>SearchScreen</h1>
-      <hr />
       <div className='row'>
         <div className='col-5'>
-          <h4>SearchForm</h4>
+          <h4>Find your hero</h4>
           <hr />
           <form onSubmit={handleSearch}>
             <input
