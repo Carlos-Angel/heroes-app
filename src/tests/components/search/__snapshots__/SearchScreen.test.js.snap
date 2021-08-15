@@ -56,7 +56,7 @@ exports[`Pruebas en <SearchScreen /> debe de mostrar a batman y el input con el 
             <img
               alt="Batman"
               className="card-img"
-              src="./assets/heroes/dc-batman.jpg"
+              src=""
             />
           </div>
           <div

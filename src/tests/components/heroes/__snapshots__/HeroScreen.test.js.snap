@@ -10,7 +10,7 @@ exports[`Pruebas en <HeroScreen /> debe de mostrar un hero si el parámetro exis
     <img
       alt="Spider Man"
       className="img-thumbnail animate__animated animate__fadeInLeft"
-      src="../assets/heroes/marvel-spider.jpg"
+      src=""
     />
   </div>
   <div
