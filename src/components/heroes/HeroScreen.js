@@ -1,8 +1,7 @@
 import React, { useMemo } from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 import { getHeroById } from '../selectors/getHeroById';
-
-const heroImages = require.context('../../assets/heroes', true);
+import { loadImage } from '../../helpers/heroImages';
 
 export default function HeroScreen({ history }) {
   const { heroId } = useParams();
@@ -28,7 +27,7 @@ export default function HeroScreen({ history }) {
     <div className='row mt-5'>
       <div className='col-4'>
         <img
-          src={heroImages(`./${heroId}.jpg`).default}
+          src={loadImage(`${heroId}.jpg`)}
           alt={superhero}
           className='img-thumbnail animate__animated animate__fadeInLeft'
         />

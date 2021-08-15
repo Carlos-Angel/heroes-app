@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-const heroImages = require.context('../../assets/heroes', true);
+import { loadImage } from '../../helpers/heroImages';
 
 export default function HeroCard({
   id,
@@ -15,7 +14,7 @@ export default function HeroCard({
       <div className='row no-gutters'>
         <div className='col-md-4'>
           <img
-            src={heroImages(`./${id}.jpg`).default}
+            src={loadImage(`${id}.jpg`)}
             className='card-img'
             alt={superhero}
           />
