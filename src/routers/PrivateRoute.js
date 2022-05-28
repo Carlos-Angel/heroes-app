@@ -1,25 +1,14 @@
 import React from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export const PrivateRoute = ({
-  isAuthenticated,
-  component: Component,
-  ...rest
-}) => {
-  localStorage.setItem('lastPath', rest.location.pathname);
+export const PrivateRoute = ({ isAuthenticated, children }) => {
+  const location = useLocation();
+  localStorage.setItem('lastPath', `${location.pathname}${location.search}`);
 
-  return (
-    <Route
-      {...rest}
-      component={(props) =>
-        isAuthenticated ? <Component {...props} /> : <Redirect to='/login' />
-      }
-    ></Route>
-  );
+  return isAuthenticated ? children : <Navigate to='/login' />;
 };
 
 PrivateRoute.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
-  component: PropTypes.func.isRequired,
 };

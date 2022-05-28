@@ -1,28 +1,21 @@
 import React, { useMemo } from 'react';
-import { Redirect, useParams } from 'react-router-dom';
+import { useParams, Navigate, useNavigate } from 'react-router-dom';
 import { getHeroById } from '../selectors/getHeroById';
 import { loadImage } from '../../helpers/heroImages';
 
-export default function HeroScreen({ history }) {
+export default function HeroScreen() {
   const { heroId } = useParams();
+  const navigate = useNavigate();
 
   const hero = useMemo(() => getHeroById(heroId), [heroId]);
 
   if (!hero) {
-    return <Redirect to='/' />;
+    return <Navigate to='/' />;
   }
 
-  const { superhero, publisher, alter_ego, first_appearance, characters } =
-    hero;
+  const { superhero, publisher, alter_ego, first_appearance, characters } = hero;
 
-  const handleBack = () => {
-    if (history.length <= 2) {
-      history.push('/');
-    } else {
-      history.goBack();
-    }
-  };
-
+  const handleBack = () => navigate(-1);
   return (
     <div className='row mt-5'>
       <div className='col-4'>

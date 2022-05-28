@@ -1,13 +1,14 @@
 import React, { useMemo } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import queryString from 'query-string';
 
 import HeroCard from '../heroes/HeroCard';
 import { useForm } from '../hooks/useForm';
 import { getHeroesByName } from '../selectors/getHeroesByName';
 
-export default function SearchScreen({ history }) {
+export default function SearchScreen() {
   const location = useLocation();
+  const navigate = useNavigate();
   const { q = '' } = queryString.parse(location.search);
 
   const [formValues, handleInputChange] = useForm({ searchText: q });
@@ -17,7 +18,7 @@ export default function SearchScreen({ history }) {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    history.push(`?q=${searchText}`);
+    navigate(`?q=${searchText}`);
   };
 
   return (
@@ -37,10 +38,7 @@ export default function SearchScreen({ history }) {
               onChange={handleInputChange}
             />
 
-            <button
-              type='submit'
-              className='btn mt-3 btn-block btn-outline-primary'
-            >
+            <button type='submit' className='btn mt-3 btn-block btn-outline-primary'>
               Search
             </button>
           </form>
@@ -52,9 +50,7 @@ export default function SearchScreen({ history }) {
           {q === '' && <div className='alert alert-info'>Search a hero</div>}
 
           {q !== '' && herosFiltered.length === 0 && (
-            <div className='alert alert-danger'>
-              There is no a hero with {q}
-            </div>
+            <div className='alert alert-danger'>There is no a hero with {q}</div>
           )}
 
           {herosFiltered.map((hero) => {
