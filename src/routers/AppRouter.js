@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import LoginScreen from '../login/LoginScreen';
 import DashboardRoutes from './DashboardRoutes';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
-import { AuthContext } from '../auth/AuthContext';
+import { useAuth } from '../hooks/useAuth.hook';
 
 export default function AppRouter() {
-  const { user } = useContext(AuthContext);
+  const { logged } = useAuth();
 
   return (
     <BrowserRouter>
@@ -17,7 +17,7 @@ export default function AppRouter() {
           <Route
             path='/login'
             element={
-              <PublicRoute isAuthenticated={user.logged}>
+              <PublicRoute isAuthenticated={logged}>
                 <LoginScreen />
               </PublicRoute>
             }
@@ -25,7 +25,7 @@ export default function AppRouter() {
           <Route
             path='/*'
             element={
-              <PrivateRoute isAuthenticated={user.logged}>
+              <PrivateRoute isAuthenticated={logged}>
                 <DashboardRoutes />
               </PrivateRoute>
             }
