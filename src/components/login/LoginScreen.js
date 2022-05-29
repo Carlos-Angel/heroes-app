@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth.hook';
+import { useAuth } from 'hooks/useAuth.hook';
 
 export default function LoginScreen() {
   const { login } = useAuth();

@@ -1,4 +1,4 @@
-import { heroes } from '../data/heroes';
+import { heroes } from 'data/heroes';
 
 export const getHeroesByName = (search = '') => {
   const name = search.toLocaleLowerCase();

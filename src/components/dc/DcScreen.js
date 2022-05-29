@@ -1,5 +1,5 @@
 import React from 'react';
-import HeroList from '../heroes/HeroList';
+import HeroList from 'components/heroes/HeroList';
 
 export default function DcScreen() {
   return (

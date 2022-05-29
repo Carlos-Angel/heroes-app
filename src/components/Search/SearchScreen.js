@@ -2,9 +2,9 @@ import React, { useMemo } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import queryString from 'query-string';
 
-import HeroCard from '../heroes/HeroCard';
-import { useForm } from '../hooks/useForm';
-import { getHeroesByName } from '../selectors/getHeroesByName';
+import HeroCard from 'components/heroes/HeroCard';
+import { useForm } from 'hooks/useForm.hook';
+import { getHeroesByName } from 'selectors/getHeroesByName';
 
 export default function SearchScreen() {
   const location = useLocation();

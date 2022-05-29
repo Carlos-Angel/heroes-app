@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { useParams, Navigate, useNavigate } from 'react-router-dom';
-import { getHeroById } from '../selectors/getHeroById';
-import { loadImage } from '../../helpers/heroImages';
+import { getHeroById } from 'selectors/getHeroById';
+import { loadImage } from 'helpers/heroImages';
 
 export default function HeroScreen() {
   const { heroId } = useParams();
