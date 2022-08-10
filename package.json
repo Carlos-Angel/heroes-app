@@ -3,6 +3,7 @@
   "version": "2.0",
   "private": true,
   "scripts": {
+    "prepare": "npx husky install",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
